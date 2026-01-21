@@ -46,6 +46,11 @@
     flavor = "balanced";
 };
 
+&trackball {
+    // automouse-layer = <4>;
+    scroll-layers = <5>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -62,7 +67,7 @@
 
         user_TAB {
             bindings = <&kp TAB>;
-            key-positions = <10 11>;
+            key-positions = <11 12>;
         };
     };
 

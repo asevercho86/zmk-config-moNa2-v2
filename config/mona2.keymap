@@ -7,8 +7,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
-#define MOUSE 5
-#define SCROLL 6
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 
@@ -50,8 +48,8 @@
     combos {
         compatible = "zmk,combos";
 
-        layer4_ESC {
-            bindings = <&lt 4 ESC>;
+        layer6_ESC {
+            bindings = <&lt 6 ESC>;
             key-positions = <39 38>;
         };
 
@@ -105,40 +103,18 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        layer_0_jp_def {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                       &kp T                                                                     &kp Y        &kp U  &kp I     &kp O     &kp P
-&mt LEFT_ALT A    &kp S         &kp D         &kp F                       &kp G                                             &kp F10                 &kp H        &kp J  &kp K     &kp L     &lt_to_layer_0 1 ENTER
+&mt LEFT_ALT A    &kp S         &kp D         &kp F                       &kp G                                             &kp F10                 &kp H        &kp J  &kp K     &kp L     &lt_to_layer_0 5 ENTER
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                       &kp B                   &kp MINUS                 &kp B                   &kp N        &kp M  &mkp MB1  &mkp MB2  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 1 BACKSPACE  &lt_to_layer_0 2 SPACE  &lt_to_layer_0 3 LANG2    &lt_to_layer_0 3 LANG1  &lt 2 SPACE                             &kp DEL
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 5 BACKSPACE  &lt_to_layer_0 4 SPACE  &lt_to_layer_0 1 LANG2    &lt_to_layer_0 1 LANG1  &lt 4 SPACE                             &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
         };
 
-        NAVIGATION {
-            bindings = <
-&trans  &kp HOME            &kp UP_ARROW    &kp END              &kp PG_UP                    &kp PG_UP  &kp HOME            &kp UP_ARROW    &kp END              &trans
-&trans  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PG_DN            &trans  &kp PG_DN  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans
-&trans  &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans     &trans    &trans  &trans     &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans
-&trans  &trans              &trans          &trans               &trans     &trans    &trans  &trans                                                              &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
-
-        NUMBER {
-            bindings = <
-&kp STAR      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                        &kp F11  &kp F12  &trans  &trans  &trans
-&kp LEFT_ALT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                   &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&kp SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS      &kp MINUS     &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans        &trans        &kp DOT       &trans        &trans        &kp RETURN    &trans  &trans                            &trans
-            >;
-
-            sensor-bindings = <&scroll_right_left>;
-        };
-
-        SIGN {
+        layer_1_jp_sign {
             bindings = <
 &kp PIPE   &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR                        &kp LBRC  &kp RBRC   &kp SQT    &kp DQT    &kp TILDE
 &kp GRAVE  &kp DLLR  &kp PRCNT  &kp CARET  &kp EQUAL               &none   &kp LBKT  &kp RBKT   &kp SEMI   &kp COLON  &kp BSLH
@@ -149,7 +125,49 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        layer_4 {
+        layer_2_kr_def {
+            bindings = <
+&kp Q             &kp W         &kp E         &kp R                       &kp T                                                                     &kp Y        &kp U  &kp I     &kp O     &kp P
+&mt LEFT_ALT A    &kp S         &kp D         &kp F                       &kp G                                             &kp F10                 &kp H        &kp J  &kp K     &kp L     &lt_to_layer_0 1 ENTER
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                       &kp B                   &kp MINUS                 &kp B                   &kp N        &kp M  &mkp MB1  &mkp MB2  &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 1 BACKSPACE  &lt_to_layer_0 2 SPACE  &lt_to_layer_0 3 LANG2    &lt_to_layer_0 3 LANG1  &lt 2 SPACE                             &kp DEL
+            >;
+
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        layer_3_kr_sign {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+            >;
+        };
+
+        layer_4_num {
+            bindings = <
+&kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                          &kp F11  &kp F12  &trans  &trans  &trans
+&kp LEFT_ALT     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_EQUAL                  &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+&kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_PLUS   &kp KP_MINUS    &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+&trans           &trans        &kp KP_DOT    &trans        &trans        &kp RETURN      &trans  &trans                            &trans
+            >;
+
+            sensor-bindings = <&scroll_right_left>;
+        };
+
+        layer_5_nav {
+            bindings = <
+&trans  &kp HOME            &kp UP_ARROW    &kp END              &kp PG_UP                    &kp PG_UP  &kp HOME            &kp UP_ARROW    &kp END              &trans
+&trans  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PG_DN            &trans  &kp PG_DN  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans
+&trans  &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans     &trans    &trans  &trans     &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans
+&trans  &trans              &trans          &trans               &trans     &trans    &trans  &trans                                                              &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        layer_6_bt {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans  &trans  &trans  &trans            &trans       &trans        &trans        &trans        &trans        &trans
@@ -160,24 +178,5 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
-            >;
-        };
-
-        MOUSE {
-            bindings = <
-&trans  &trans    &trans    &trans    &trans                    &trans  &trans    &trans    &trans    &trans
-&trans  &mkp MB3  &mkp MB2  &mkp MB1  &trans            &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
-&trans  &trans    &trans    &trans    &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans    &trans    &trans    &trans  &trans    &trans  &trans                                &trans
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
     };
 };

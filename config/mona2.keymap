@@ -10,34 +10,34 @@
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 
-#define JP_DQUOTE       AT                // "
-#define JP_AMPERSAND    CARET             // &
-#define JP_QUOTE        AMPERSAND         // '
+#define JP_DQT          AT                // "
+#define JP_AMPS         CARET             // &
+#define JP_SQT          AMPS              // '
 #define JP_EQUAL        UNDER             // =
 #define JP_CARET        EQUAL             // ^
-#define JP_YEN          0x89              // ¥
+#define JP_BSLH         0x89              // ¥
 #define JP_PLUS         COLON             // +
 #define JP_TILDE        PLUS              // ~
 #define JP_PIPE         LS(0x89)          // |
-#define JP_AT           LEFT_BRACKET      // @
-#define JP_COLON        SINGLE_QUOTE      // :
-#define JP_ASTERISK     DOUBLE_QUOTES     // *
-#define JP_BACKQUOTE    LEFT_BRACE        // `
-#define JP_UNDERSCORE   LS(0x87)          // _
-#define JP_LBRACKET     RIGHT_BRACKET     // [
-#define JP_RBRACKET     BACKSLASH         // ]
-#define JP_LPAREN       ASTERISK          // (
-#define JP_RPAREN       LEFT_PARENTHESIS  // )
-#define JP_LBRACE       RIGHT_BRACE       // {
-#define JP_RBRACE       PIPE              // }
+#define JP_AT           LBKT              // @
+#define JP_COLON        SQT               // :
+#define JP_STAR         DQT               // *
+#define JP_GRAVE        LBRC              // `
+#define JP_UNDER        LS(0x87)          // _
+#define JP_LBKT         RBKT              // [
+#define JP_RBKT         BSLH              // ]
+#define JP_LPAR         STAR              // (
+#define JP_RPAR         LPAR              // )
+#define JP_LBRC         RBRC              // {
+#define JP_RBRC         PIPE              // }
 #define JP_KANA         LANGUAGE_1        // かな
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
 
 #define COM_PLUS        0x57              // +
 #define COM_MINUS       0x56              // -
-#define COM_ASTERISK    0x55              // *
-#define COM_SLASH       0x54              // /
+#define COM_MULTIPLY    0x55              // *
+#define COM_DIVIDE      0x54              // /
 
 &mt {
     flavor = "balanced";
@@ -143,18 +143,18 @@
 
         layer_3_kr_sign {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+&kp PIPE      &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR                        &kp LBRC  &kp RBRC   &kp SQT    &kp DQT    &kp TILDE
+&kp LEFT_ALT  &kp DLLR  &kp PRCNT  &kp CARET  &kp MINUS               &none   &kp LBKT  &kp RBKT   &kp SEMI   &kp COLON  &kp BSLH
+&kp GRAVE     &kp EXCL  &kp AT     &kp HASH   &kp PLUS   &kp EQUAL    &none   &none     &kp UNDER  &kp COMMA  &kp DOT    &kp SLASH
+&trans        &trans    &trans     &trans     &trans     &trans       &trans  &trans                                     &trans
             >;
         };
 
         layer_4_num {
             bindings = <
-&kp COM_ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                         &kp F11  &kp F12  &trans  &trans  &trans
+&kp COM_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                         &kp F11  &kp F12  &trans  &trans  &trans
 &kp LEFT_ALT      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp COM_MINUS                &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&kp COM_SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COM_PLUS   &trans        &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+&kp COM_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COM_PLUS   &trans        &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
 &trans            &trans        &kp KP_DOT    &trans        &trans         &kp RETURN    &trans  &trans                            &trans
             >;
 

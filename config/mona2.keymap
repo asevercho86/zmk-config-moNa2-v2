@@ -152,10 +152,10 @@
 
         layer_4_num {
             bindings = <
-&kp COM_ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                           &kp F11  &kp F12  &trans  &trans  &trans
-&kp LEFT_ALT      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp COM_MINUS                  &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&kp COM_SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COM_PLUS   &kp KP_EQUAL    &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans            &trans        &kp KP_DOT    &trans        &trans         &kp RETURN      &trans  &trans                            &trans
+&kp COM_ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                         &kp F11  &kp F12  &trans  &trans  &trans
+&kp LEFT_ALT      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp COM_MINUS                &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+&kp COM_SLASH     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COM_PLUS   &trans        &trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+&trans            &trans        &kp KP_DOT    &trans        &trans         &kp RETURN    &trans  &trans                            &trans
             >;
 
             sensor-bindings = <&scroll_right_left>;

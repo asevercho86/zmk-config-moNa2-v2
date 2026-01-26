@@ -33,7 +33,6 @@
 #define JP_KANA         LANGUAGE_1        // かな
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
-
 #define COM_PLUS        0x57              // +
 #define COM_MINUS       0x56              // -
 #define COM_MULTIPLY    0x55              // *
@@ -67,6 +66,11 @@
             bindings = <&kp TAB>;
             key-positions = <11 12>;
         };
+
+        user_capslock {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <22 23>;
+        };
     };
 
     macros {
@@ -83,22 +87,21 @@
             bindings = <&to 2 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_2";
         };
+
         // 한국어 모드로 전환 (US 레이어로 복귀 + 한/영 키 전송)
+
         to_kr: to_kr_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&to 2>             // 0번 레이어(기본)로 이동
-                , <&kp LG(SPACE)>;    // Windows 언어 전환 단축키 (Alt + `)
+            bindings = <&to 2 &kp LG(SPACE)>;    // Windows 언어 전환 단축키 (Alt + `)
         };
 
         // 일본어 모드로 전환 (JP 레이어로 이동 + 한/영 키 전송)
+
         to_jp: to_jp_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&to 0>             // 1번 레이어(JP 보정)로 이동
-                , <&kp LG(SPACE)>;    // Windows 언어 전환 단축키
+            bindings = <&to 0 &kp LG(SPACE)>;    // Windows 언어 전환 단축키
         };
     };
 
@@ -120,7 +123,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
-        
+
         scroll_up_down: mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -136,6 +139,24 @@
 
             tap-ms = <20>;
         };
+
+        hold_alt_to_kr: hold_alt_to_kr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_ALT_TO_KR";
+            bindings = <&kp>, <&to_kr>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        hold_alt_to_jp: hold_alt_to_jp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_ALT_TO_JP";
+            bindings = <&kp>, <&to_jp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -144,9 +165,9 @@
         layer_0_jp_def {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R            &kp T                                                          &kp Y        &kp U  &kp I     &kp O     &kp P
-&mt LEFT_ALT A    &kp S         &kp D         &kp F            &kp G                                  &kp F10                 &kp H        &kp J  &kp K     &kp L     &lt 5 ENTER
+&mt LEFT_ALT A    &kp S         &kp D         &kp F            &kp G                                  &kp DELETE              &kp H        &kp J  &kp K     &kp L     &lt 5 ENTER
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V            &kp B        &kp EQUAL                 &kp B                   &kp N        &kp M  &mkp MB1  &mkp MB2  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 5 BACKSPACE  &lt 4 SPACE  &lt_to_layer_0 1 LANG2    &lt_to_layer_0 1 LANG1  &lt 4 SPACE                             &to_kr
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 5 BACKSPACE  &lt 4 SPACE  &lt_to_layer_0 1 LANG2    &lt_to_layer_0 1 LANG1  &lt 4 SPACE                             &hold_alt_to_kr LEFT_ALT 0
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -166,9 +187,9 @@
         layer_2_kr_def {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R            &kp T                                                          &kp Y        &kp U  &kp I     &kp O     &kp P
-&mt LEFT_ALT A    &kp S         &kp D         &kp F            &kp G                                  &kp F10                 &kp H        &kp J  &kp K     &kp L     &lt 5 ENTER
+&mt LEFT_ALT A    &kp S         &kp D         &kp F            &kp G                                  &kp DELETE              &kp H        &kp J  &kp K     &kp L     &lt 5 ENTER
 &mt LEFT_SHIFT Z  &kp X         &kp C         &kp V            &kp B        &kp EQUAL                 &kp B                   &kp N        &kp M  &mkp MB1  &mkp MB2  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 5 BACKSPACE  &lt 4 SPACE  &lt_to_layer_2 3 LANG2    &lt_to_layer_2 3 LANG1  &lt 4 SPACE                             &to_jp
+&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 5 BACKSPACE  &lt 4 SPACE  &lt_to_layer_2 3 LANG2    &lt_to_layer_2 3 LANG1  &lt 4 SPACE                             &hold_alt_to_jp LEFT_ALT 0
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -215,6 +236,5 @@
 
             sensor-bindings = <&scroll_up_down>;
         };
-
     };
 };

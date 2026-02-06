@@ -217,10 +217,10 @@
 
         layer_5_nav {
             bindings = <
-&trans  &kp HOME            &kp UP_ARROW    &kp END              &kp PG_UP                       &kp PG_UP  &kp HOME            &kp UP_ARROW    &kp END              &trans
-&trans  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PG_DN            &trans     &kp PG_DN  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans
-&trans  &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans     &trans    &trans     &trans     &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans
-&trans  &trans              &trans          &trans               &trans     &trans    &LEFT_ALT  &LCTRL                                                              &trans
+&trans  &kp HOME            &kp UP_ARROW    &kp END              &kp PG_UP                          &kp PG_UP  &kp HOME            &kp UP_ARROW    &kp END              &trans
+&trans  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PG_DN            &trans        &kp PG_DN  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans
+&trans  &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans     &trans    &trans        &trans     &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans
+&trans  &trans              &trans          &trans               &trans     &trans    &kp LEFT_ALT  &kp LCTRL                                                           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;

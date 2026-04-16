@@ -257,7 +257,7 @@
 &trans          &trans              &trans          &trans               &trans     &trans    &kp LCTRL  &kp LEFT_ALT                                                              &kp LEFT_WIN
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         layer_6_bt {
